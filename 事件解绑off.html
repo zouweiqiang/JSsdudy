@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="./jquery.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+    }
+
+    .current {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div></div>
+
+  <ul>
+    <li>卖女孩的小火柴</li>
+    <li>卖女孩的小火柴</li>
+    <li>卖女孩的小火柴</li>
+    <li>卖女孩的小火柴</li>
+    <li>卖女孩的小火柴</li>
+  </ul>
+<p>123123</p>
+  <ol>
+
+  </ol>
+  <script>
+    $(function () {
+      // $('div').click(function(){
+      //   $(this).css('background','pink');
+      // });
+      // $('div').mouseenter(function(){
+      //   $(this).css('background','red');
+      // })
+
+
+      // $('div').on({
+      //   mouseenter:function(){
+      //     $(this).css('background','pink');
+      //   },
+      //   click:function(){
+      //   $(this).css('background','red');
+      // },
+      // mouseleave: function(){
+      //   $(this).css('background','blue');
+      // }
+      // })
+
+
+      // $('div').on('mouseenter mouseleave',function(){
+      //   $(this).toggleClass('current');
+      // })
+
+      // $('ul').on('click', 'li', function () {
+      //   alert(1);
+      // })
+
+
+      // $('ol li').click(function () {
+      //   alert(1);
+      // })
+
+      // $('ol').on('click', 'li', function () {
+      //   alert(2);
+      //   //on可以给未来动态创建的元素绑定事件
+      //   var li = $('<li>我是后面创建的</li>');
+      //   $('ol').append(li);
+
+      // })
+
+
+
+      $(function () {
+        $('div').on({
+          click: function () {
+            console.log('点错了');
+          },
+          mouseover: function () {
+            console.log('鼠标经过了');
+          }
+        });
+        $('ul').on('click', 'li', function () {
+          alert(1);
+        })
+        // $('div').off();
+        // $('div').off(click);
+
+        $('ul').off('click','li');
+
+        $('p').one('click',function(){
+          alert(4);
+        })
+
+      })
+    })
+  </script>
+</body>
+
+</html>

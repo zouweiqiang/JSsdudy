@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="./jquery.min.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      cursor:pointer;
+    }
+    .tab{
+      position: relative;
+    }
+    .tab_list{
+      
+    }
+    .tab_list ul li{
+      background-color: #ccc;
+      width: 100px;
+      height: 40px;
+      float: left;
+      text-align: center;
+      line-height: 40px;
+      
+    }
+    .tab_list ul li:hover{
+      background: #ff5455;
+    }
+    .current{
+      background-color: red !important;
+      color: #fff;
+    }
+    .item {
+      display: none;
+    }
+    .tab_con{
+      position: absolute;
+      top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab">
+    <div class="tab_list">
+      <ul>
+        <li class="current">商品介绍</li>
+        <li>规格与包装</li>
+        <li>善后保障</li>
+        <li>商品评价</li>
+        <li>手机社区</li>
+      </ul>
+    </div>
+
+    <div class="tab_con">
+      <div class="item" style="display: block;">商品价格介绍</div>
+      <div class="item">规格介绍</div>
+      <div class="item">售后介绍</div>
+      <div class="item">商品评价</div>
+      <div class="item">手机介绍</div>
+    </div>
+  </div>
+
+  <script>
+    // var tab_list = document.querySelector('.tab_list');
+    // var lis = tab_list.querySelectorAll('li');
+    // var item = document.querySelectorAll('.item');
+
+    // for (var i=0;i<lis.length;i++){
+    //   lis[i].setAttribute('index',i);
+    //   lis[i].onclick = function() {
+    //     for (var i=0;i<lis.length;i++){
+    //       lis[i].className = '';
+    //     }
+    //     this.className = 'current';
+    //     for(var i=0;i<item.length;i++){
+    //       item[i].style.display = 'none';
+    //     } 
+    //     var index = this.getAttribute('index');
+    //     // console.log(index);
+    //     item[index].style.display = 'block';
+    //   }
+    // }
+
+
+
+    $(function(){
+      $('.tab_list li').click(function(){
+
+        $(this).addClass('current').siblings().removeClass('current');
+
+        var index = $(this).index();
+        console.log(index);
+        $('.tab_con .item').eq(index).show().siblings().hide();
+      })
+    })
+  </script>
+</body>
+</html>
